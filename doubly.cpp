@@ -111,9 +111,9 @@ cout<<"element not found";
 }
 
 int main() {
-    Node<int>* node1=new Node<int>(10);
-    Node<int>* head=node1;
-    Node<int>* tail=node1;
+    
+    Node<int>* head=NULL;
+    Node<int>* tail=NULL;
    int result,ans=0;
    while(true)
    {
