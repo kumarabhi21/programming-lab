@@ -1,53 +1,102 @@
 #include<iostream>
 using namespace std;
-
-template<typename T>
-class array{
+template<class T>
+class array
+{
 	public:
-		T mInd=-1;
-		T *array = new T[100];
-		
-		void search(T d){
-			T i;
-			for(i=0;i<=mInd;i++){
-				if(array[i]==d){ 
-					cout<<"Data Presnt at index  "<<i<<endl;
-					return;
-				}
-			}
-			cout<<"not present"<<endl;
-		}	
-		void insert(T d){
-			mInd++;
-			array[mInd]=d;
-		}
-		void delet(T num){
-			T index;
-			for(index=0;index<=mInd;index++){
-				if(array[index]==num){ 
-					break;
-				}
-			}
-			for(T i=index;i<mInd;i++){
-				array[i]=array[i+1];       
-			}
-			mInd--;
-		}
-		void print(){
-			for(T i=0;i<=mInd;i++){\
-				cout<<array[i]<<",";
-			}
-		}
-
-};
-
-int main(){
-	array<int> arr;
-	int i;
-	for(i=0;i<25;i++ ){
-		arr.insert(i);       
+	T arr[100];
+	int index=-1;
+	void insertNumber()
+	{
+		T val;
+		cout<<"Enter value to be inserted:";
+		cin>>val;
+		index++;
+		arr[index]=val;
 	}
-	arr.search(24);
-	arr.delet(24);
-	arr.print();
+	void deleteNumber()
+	{
+		if(index==-1)
+		{
+			cout<<"empty"<<endl;
+		}
+		T val;
+		cout<<"Enter value to deleted"<<endl;
+		cin>>val;
+		for(int i=0;i<=index;i++)
+		{
+			if(arr[i]==val)
+			{
+				for(int j=i;j<=index;j++)
+				{
+					arr[j]=arr[j+1];
+				}
+				cout<<"deleted"<<endl;
+				index--;
+				return;
+			}
+		}
+		cout<<"Not found"<<endl;
+		return;
+	}
+	void printArray()
+	{
+		for(int i=0;i<=index;i++)
+		{
+			cout<<arr[i]<<" ";
+		}
+		cout<<endl;
+		return;
+	}
+	void searchNumber()
+	{
+		T val;
+		cout<<"Enter value to search:";
+		cin>>val;
+		for(int i=0;i<=index;i++)
+		{
+			if(arr[i]==val)
+			{
+				cout<<"found"<<i<<endl;
+				return;
+			}
+		}
+		cout<<" not found"<<endl;
+	}
+};
+int main()
+{
+	array<int> ch;
+	int input,ans;
+	while(1)
+	{
+		cout<<endl<<"1.Insert"<<endl<<"2.Delete\n"<<"3.Display\n"<<"4.Search\n"<<"5.exit\n"<<"Select:";
+		cin>>input;
+
+		switch(input)
+		{
+			case 1:
+				ch.insertNumber();
+				break;
+			case 2:
+				ch.deleteNumber();
+				break;
+			case 3:
+				ch.printArray();
+				break;
+			case 4:
+				ch.searchNumber();
+				break;
+				case 5:
+				return 0;
+				break;
+			default:
+				cout<<"Wrong input!!"<<endl;
+		
+			
+		}
+		
+	}
+	return 0;
 }
+
