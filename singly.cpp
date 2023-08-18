@@ -40,11 +40,11 @@ void insertAtPosition(Node<T>* &tail,Node<T>* &head,int position,int data)
         temp=temp->next;
         count++;
     }
-    if(temp->next==NULL)
+    /*if(temp->next==NULL)
     {
        insertatTail(tail,data);
        return;
-    }
+    }*/
     Node<T>* nodet=new Node<T>(data);
     nodet->next=temp->next;
     temp->next=nodet;
