@@ -1,3 +1,4 @@
+
 #include <iostream>
 using namespace std;
 template<class T>
@@ -18,7 +19,7 @@ void insertatHead(Node<T>* &head,T data)
 {
     Node<T>* temp=new Node<T>(data);
     temp->next=head;
-    head->prev=temp;
+    //head->prev=temp;
     head=temp;
 }
 template<class T>
@@ -43,15 +44,17 @@ void insertAtPosition(Node<T>* &tail,Node<T>* &head,int position,T data)
     {
         temp=temp->next;
         count++;
-    }
-    if(temp->next==NULL)
+   }
+    /*if(temp->next=NULL)
     {
-       insertatTail(tail,data);
-       return;
-    }
+	    insertatTail(tail,data);
+	    return;
+    }*/
     Node<T>* nodet=new Node<T>(data);
     nodet->next=temp->next;
-    temp->next->prev=nodet;
+    if(temp->next!=NULL){
+    	temp->next->prev=nodet;
+    }
     temp->next=nodet;
     nodet->prev=temp;
 }
@@ -122,7 +125,8 @@ int main() {
    switch(result)
    {
        case 1:
-       int val;
+
+	       int val;
        int pos;
        cout<<"enter the value to be inserted";
        cin>>val;
