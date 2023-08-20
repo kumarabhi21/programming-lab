@@ -1,3 +1,5 @@
+
+
 #include<bits/stdc++.h>
 using namespace std;
 int totalnodes=0;
@@ -34,11 +36,13 @@ void delete_(){
                 p->next=head;
             }
         }
-        else{
+        else
+	{
             while(par_position!=1 && pointer1->next!=head)
             {
                 p=pointer1;
                 pointer1=pointer1->next;
+		par_position--;
             }
             if(pointer1->next==head){
                 p->next=head;
@@ -137,7 +141,7 @@ int main(){
     Circular_Linked_list<int> object;
     while(true)
     {
-    cout<<"operation u want to perform :\n"<<"1.insert\n"<<"3.search\n"<<"2.delete\n"<<"4.show LinkedList\n";
+    cout<<"operation u want to perform :\n"<<"1.insert\n"<<"2.delete\n"<<"3.search\n"<<"4.show LinkedList\n";
     cin>>result;
     switch(result){
         case 1:
@@ -148,6 +152,7 @@ int main(){
         case 2:
            object.delete_();
            cout<<"\n";
+	   break;
         case 3:
           cout<<"enter the value u wnat to search";
           cin>>value;
